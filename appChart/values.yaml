@@ -8,7 +8,7 @@ image:
   repository: vanzhin/my-app
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: v1.1
+  tag: v1.2
 
 imagePullSecrets: [ ]
 nameOverride: ""
@@ -42,6 +42,7 @@ securityContext: { }
 service:
   type: ClusterIP
   port: 80
+  name: metrics
   targetPort: 8000
 
 ingress:

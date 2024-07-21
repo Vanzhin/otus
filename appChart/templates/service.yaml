@@ -8,6 +8,7 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - protocol: {{ .Values.service.protocol }}
+      name: {{ .Values.service.name }}
       port: {{ .Values.service.port }}
       targetPort: {{ .Values.service.targetPort }}
   selector:
