@@ -1,28 +1,39 @@
-apiVersion: batch/v1
-kind: Job
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: {{ include "app_chart.fullname" . }}
-  labels:
-    {{- include "app_chart.labels" . | nindent 4 }}
+  name: myapp-profile-deployment
 spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      app: myapp-profile
   template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        app: myapp-profile
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "app_chart.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
-        - name: {{ .Chart.Name }}
+        - name: myapp-profile
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.auth.image.repository }}:{{ .Values.auth.image.tag | default .Chart.AppVersion }}"
-          command: [ "bash" ]
-          args:
-            - -c
-            - cd app/ && php bin/console doctrine:migrations:migrate --no-interaction && php bin/console lexik:jwt:generate-keypair --skip-if-exists
+          image: "{{ .Values.profile.image.repository }}:{{ .Values.profile.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.profile.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.profile.service.port }}
+              protocol: TCP
           env:
             - name: DB_USER
               valueFrom:
@@ -49,5 +60,3 @@ spec:
                 configMapKeyRef:
                   name: postgresql-config
                   key: DB_PORT
-      restartPolicy: Never
-  backoffLimit: 4

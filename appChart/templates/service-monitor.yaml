@@ -6,7 +6,7 @@ metadata:
     {{- include "app_chart.labels" . | nindent 4 }}-monitor
 spec:
   endpoints:
-    - port: {{ .Values.service.name }}
+    - port: {{ .Values.auth.service.name }}
       scrapeTimeout: 30s
       path: /metrics/prometheus
       honorLabels: true

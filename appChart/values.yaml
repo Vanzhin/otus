@@ -2,13 +2,67 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-replicaCount: 6
+replicaCount: 2
 
-image:
-  repository: vanzhin/my-app
-  pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: v1.2
+auth:
+  service:
+    protocol: TCP
+    name: http
+    type: ClusterIP
+    port: 80
+    targetPort: 8000
+  image:
+    repository: vanzhin/my-app
+    pullPolicy: IfNotPresent
+    # Overrides the image tag whose default is the chart appVersion.
+    tag: v1.5.3
+  ingress:
+      enabled: true
+      name: kuber-ingress
+      className: nginx
+      annotations:
+        nginx.ingress.kubernetes.io/rewrite-target: "/$2"
+        nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+        nginx.ingress.kubernetes.io/proxy-connect-timeout: "90s"
+          # kubernetes.io/ingress.class: nginx
+          # kubernetes.io/tls-acme: "true"
+      hosts:
+        - host: "arch.homework"
+          http:
+          paths:
+            - path: /()(.*)
+              pathType: ImplementationSpecific
+#            - path: /api/users
+#              pathType: Prefix
+            - path: /otusapp/\w+(/|$)(.*)
+              pathType: ImplementationSpecific
+      tls: [ ]
+profile:
+  service:
+    protocol: TCP
+    name: http
+    type: ClusterIP
+    port: 80
+    targetPort: 8000
+  image:
+    repository: vanzhin/profile
+    pullPolicy: IfNotPresent
+      # Overrides the image tag whose default is the chart appVersion.
+    tag: v1.0
+  ingress:
+    enabled: true
+    name: kuber-ingress
+    className: nginx
+    annotations:
+      nginx.ingress.kubernetes.io/auth-url: "http://arch.homework/api/auth/token/validate"
+      nginx.ingress.kubernetes.io/auth-response-headers: "x-user"
+    hosts:
+      - host: "arch.homework"
+        http:
+        paths:
+          - path: /profile
+            pathType: Prefix
+    tls: [ ]
 
 imagePullSecrets: [ ]
 nameOverride: ""
@@ -39,32 +93,17 @@ securityContext: { }
   # runAsNonRoot: true
 # runAsUser: 1000
 
-service:
+#service:
+#  type: ClusterIP
+#  port: 80
+#  name: metrics
+#  targetPort: 8000
+
+serviceTest:
   type: ClusterIP
   port: 80
   name: metrics
   targetPort: 8000
-
-ingress:
-  enabled: true
-  name: kuber-ingress
-  className: nginx
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: "/$2"
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
-  hosts:
-    - host: "arch.homework"
-      http:
-      paths:
-        - path: /()(.*)
-          pathType: ImplementationSpecific
-        - path: /otusapp/\w+(/|$)(.*)
-          pathType: ImplementationSpecific
-  tls: [ ]
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
 
 resources: { }
   # We usually recommend not to specify default resources and to leave this as a conscious
@@ -135,3 +174,15 @@ postgresql:
         database: database_app
       service:
         port: "5432"
+  profile:
+    enabled: true
+    fullnameOverride: "app-postgresql-profile"
+    global:
+      postgresql:
+        auth:
+          username: postgres
+          password: password
+          database: database_app
+        service:
+          port: "54321"
+

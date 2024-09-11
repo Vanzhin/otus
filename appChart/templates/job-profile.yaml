@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ include "app_chart.fullname" . }}
+  name: {{ include "app_chart.fullname" . }}-profile
   labels:
     {{- include "app_chart.labels" . | nindent 4 }}
 spec:
@@ -18,11 +18,11 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.auth.image.repository }}:{{ .Values.auth.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.profile.image.repository }}:{{ .Values.profile.image.tag | default .Chart.AppVersion }}"
           command: [ "bash" ]
           args:
             - -c
-            - cd app/ && php bin/console doctrine:migrations:migrate --no-interaction && php bin/console lexik:jwt:generate-keypair --skip-if-exists
+            - cd app/ && php bin/console doctrine:migrations:migrate --no-interaction
           env:
             - name: DB_USER
               valueFrom:
