@@ -5,11 +5,11 @@ metadata:
   labels:
     {{- include "app_chart.labels" . | nindent 4 }}
 spec:
-  type: {{ .Values.service.type }}
+  type: {{ .Values.auth.service.type }}
   ports:
-    - protocol: {{ .Values.service.protocol }}
-      name: {{ .Values.service.name }}
-      port: {{ .Values.service.port }}
-      targetPort: {{ .Values.service.targetPort }}
+    - protocol: {{ .Values.auth.service.protocol }}
+      name: {{ .Values.auth.service.name }}
+      port: {{ .Values.auth.service.port }}
+      targetPort: {{ .Values.auth.service.targetPort }}
   selector:
     {{- include "app_chart.selectorLabels" . | nindent 4 }}
