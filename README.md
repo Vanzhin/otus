@@ -1,5 +1,26 @@
 # OTUS-MSA
 
+## ДЗ-6. API Gateway
+
+1. Должен быть установлен [https://helm.sh/docs/intro/install/](helm)
+2. Выполнить пункты 1-3,5 из ДЗ-3
+3. Выполнить команду 3 из ДЗ-5
+4. Выполнить команду
+   ```shell
+     helm install myapp appChart
+   ```
+5. Для работы на локальной машине, необходимо, чтобы в /etc/hosts был прописан "127.0.0.1 arch.homework", также
+   выполнить команду
+   ```shell
+   minikube tunnel
+   ```
+6. Выполнить команду, после которой можно перейти в интерфейс Прометея по роуту http://localhost:9090 (в моем
+   случае http://arch.homework:9090)
+   ```shell
+      kubectl port-forward service/prometheus-operated  9090
+   ```
+8. Инструкции есть в директории [docs](docs)
+
 ## ДЗ-5. Прометей и Графана
 
 1. Должен быть установлен [https://helm.sh/docs/intro/install/](helm)
