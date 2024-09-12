@@ -1,0 +1,628 @@
+{
+	"id": "606a4ea1-93db-46ac-af9b-12e1b5c7131d",
+	"name": "HW6",
+	"timestamp": "2024-09-12T10:15:51.302Z",
+	"collection_id": "24005342-775ce309-717e-4d46-aaab-f7696c6de636",
+	"folder_id": 0,
+	"environment_id": "24005342-2331d549-ae70-4a49-b9c3-115280195fc1",
+	"totalPass": 49,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-09-12T10:15:41.806Z",
+	"totalFail": 2,
+	"results": [
+		{
+			"id": "22a54d64-4483-42db-ac3e-872e0dac09d1",
+			"name": "Регистрация пользователя 1 Copy",
+			"url": "http://arch.homework/api/users",
+			"time": 1291,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response has the required field - status": true,
+				"Content type is application/json": true,
+				"Status field is not empty": true,
+				"Response time is less than 500ms": false
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has the required field - status": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content type is application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status field is not empty": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				1291
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response has the required field - status": true,
+					"Content type is application/json": true,
+					"Status field is not empty": true,
+					"Response time is less than 500ms": false
+				}
+			]
+		},
+		{
+			"id": "29336a78-e36b-4112-a255-1a19904c5638",
+			"name": "Логин  пользователя 1 Copy",
+			"url": "http://arch.homework/api/auth/token/login",
+			"time": 1325,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response time is within an acceptable range": true,
+				"Content-Type header is application/json": true,
+				"Validate the structure of the response JSON": true,
+				"Check if the 'result,' 'status,' 'data,' and 'message' fields are present in the response": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is within an acceptable range": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate the structure of the response JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check if the 'result,' 'status,' 'data,' and 'message' fields are present in the response": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1325
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response time is within an acceptable range": true,
+					"Content-Type header is application/json": true,
+					"Validate the structure of the response JSON": true,
+					"Check if the 'result,' 'status,' 'data,' and 'message' fields are present in the response": true
+				}
+			]
+		},
+		{
+			"id": "bc4955c5-3f04-4179-8b23-ea5437d5eea6",
+			"name": "Создать профиль пользователя 1 Copy",
+			"url": "http://arch.homework/profile/add",
+			"time": 1484,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response time is within an acceptable range": true,
+				"Presence of result, status, data, and message fields": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is within an acceptable range": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Presence of result, status, data, and message fields": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1484
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response time is within an acceptable range": true,
+					"Presence of result, status, data, and message fields": true
+				}
+			]
+		},
+		{
+			"id": "b74d58e6-46d4-49d4-8462-e22b02be11fb",
+			"name": "Получить профиль пользователя 1 Не авторизованный Copy",
+			"url": "http://arch.homework/profile/01J7JVPP5JQ4CX0WZVDBMZEGZV",
+			"time": 58,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Response status code is 401": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				58
+			],
+			"allTests": [
+				{
+					"Response status code is 401": true
+				}
+			]
+		},
+		{
+			"id": "50b86c47-3927-4da5-86a3-42132288ad2d",
+			"name": "Обновить профиль пользователя 1 Не авторизованный Copy",
+			"url": "http://arch.homework/profile/01J7JVPP5JQ4CX0WZVDBMZEGZV",
+			"time": 27,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Response status code is 401": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				27
+			],
+			"allTests": [
+				{
+					"Response status code is 401": true
+				}
+			]
+		},
+		{
+			"id": "4070f1b8-68a5-4b92-9f5b-3f94c796be1d",
+			"name": "Получить профиль пользователя 1 Авторизован 1 Copy",
+			"url": "http://arch.homework/profile/01J7JVPP5JQ4CX0WZVDBMZEGZV",
+			"time": 1490,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response time is less than 1500ms": true,
+				"Content-Type header is application/json": true,
+				"Response has the required fields - ulid, name, and age": true,
+				"Age is a non-negative integer": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has the required fields - ulid, name, and age": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Age is a non-negative integer": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1490
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response time is less than 1500ms": true,
+					"Content-Type header is application/json": true,
+					"Response has the required fields - ulid, name, and age": true,
+					"Age is a non-negative integer": true
+				}
+			]
+		},
+		{
+			"id": "8c789321-f1e7-40ad-ae2e-7d4cb7716384",
+			"name": "Обновить профиль пользователя 1 Авторизованный 1 Copy",
+			"url": "http://arch.homework/profile/01J7JVPP5JQ4CX0WZVDBMZEGZV",
+			"time": 331,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response time is within an acceptable range": true,
+				"Response has the required fields - result, status, data, and message": true,
+				"Result is a non-empty string": true,
+				"Status is a non-negative integer": true,
+				"Ulid is a non-empty string": true,
+				"Content-Type is application/json": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is within an acceptable range": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has the required fields - result, status, data, and message": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Result is a non-empty string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status is a non-negative integer": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ulid is a non-empty string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				331
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response time is within an acceptable range": true,
+					"Response has the required fields - result, status, data, and message": true,
+					"Result is a non-empty string": true,
+					"Status is a non-negative integer": true,
+					"Ulid is a non-empty string": true,
+					"Content-Type is application/json": true
+				}
+			]
+		},
+		{
+			"id": "f5d14440-89e4-4e5a-86fc-0eef651c592b",
+			"name": "Получить профиль пользователя 1 Авторизован 1 Обновленный Copy",
+			"url": "http://arch.homework/profile/01J7JVPP5JQ4CX0WZVDBMZEGZV",
+			"time": 304,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response time is less than 1500ms": true,
+				"Content-Type header is application/json": true,
+				"Response has the required fields - ulid, name, and age": true,
+				"Response has the prorep data": true,
+				"Age is a non-negative integer": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has the required fields - ulid, name, and age": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has the prorep data": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Age is a non-negative integer": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				304
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response time is less than 1500ms": true,
+					"Content-Type header is application/json": true,
+					"Response has the required fields - ulid, name, and age": true,
+					"Response has the prorep data": true,
+					"Age is a non-negative integer": true
+				}
+			]
+		},
+		{
+			"id": "b8a8da96-48ec-426e-9248-1a82a3d2e621",
+			"name": "Регистрация пользователя 2 Copy",
+			"url": "http://arch.homework/api/users",
+			"time": 981,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response has the required field - status": true,
+				"Content type is application/json": true,
+				"Status field is not empty": true,
+				"Response time is less than 500ms": false
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has the required field - status": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content type is application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status field is not empty": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				981
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response has the required field - status": true,
+					"Content type is application/json": true,
+					"Status field is not empty": true,
+					"Response time is less than 500ms": false
+				}
+			]
+		},
+		{
+			"id": "5a281ec7-a3fe-4828-aa2a-aeb007c84d01",
+			"name": "Логин  пользователя 2 Copy",
+			"url": "http://arch.homework/api/auth/token/login",
+			"time": 1092,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response time is within an acceptable range": true,
+				"Content-Type header is application/json": true,
+				"Validate the structure of the response JSON": true,
+				"Check if the 'result,' 'status,' 'data,' and 'message' fields are present in the response": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is within an acceptable range": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate the structure of the response JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check if the 'result,' 'status,' 'data,' and 'message' fields are present in the response": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1092
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response time is within an acceptable range": true,
+					"Content-Type header is application/json": true,
+					"Validate the structure of the response JSON": true,
+					"Check if the 'result,' 'status,' 'data,' and 'message' fields are present in the response": true
+				}
+			]
+		},
+		{
+			"id": "7a0cc528-943f-494b-a0f1-7f5f1a64b16d",
+			"name": "Получить профиль пользователя 1 Авторизован 2 Copy",
+			"url": "http://arch.homework/profile/01J7JVPP5JQ4CX0WZVDBMZEGZV",
+			"time": 316,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Response status code is 403": true,
+				"Response time is less than 500ms": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 403": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				316
+			],
+			"allTests": [
+				{
+					"Response status code is 403": true,
+					"Response time is less than 500ms": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "195ad4a4-4ed4-4af1-a0b0-8e69ec654096",
+			"name": "Обновить профиль пользователя 1 Авторизованный 2 Copy",
+			"url": "http://arch.homework/profile/01J7JVPP5JQ4CX0WZVDBMZEGZV",
+			"time": 418,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Response status code is 403": true,
+				"Response time is within an acceptable range": true,
+				"Result is a non-empty string": true,
+				"Status is a non-negative integer": true,
+				"Content-Type is application/json": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 403": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is within an acceptable range": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Result is a non-empty string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status is a non-negative integer": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				418
+			],
+			"allTests": [
+				{
+					"Response status code is 403": true,
+					"Response time is within an acceptable range": true,
+					"Result is a non-empty string": true,
+					"Status is a non-negative integer": true,
+					"Content-Type is application/json": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 9117,
+	"collection": {
+		"requests": [
+			{
+				"id": "22a54d64-4483-42db-ac3e-872e0dac09d1",
+				"method": "POST"
+			},
+			{
+				"id": "29336a78-e36b-4112-a255-1a19904c5638",
+				"method": "GET"
+			},
+			{
+				"id": "bc4955c5-3f04-4179-8b23-ea5437d5eea6",
+				"method": "POST"
+			},
+			{
+				"id": "b74d58e6-46d4-49d4-8462-e22b02be11fb",
+				"method": "GET"
+			},
+			{
+				"id": "50b86c47-3927-4da5-86a3-42132288ad2d",
+				"method": "PUT"
+			},
+			{
+				"id": "4070f1b8-68a5-4b92-9f5b-3f94c796be1d",
+				"method": "GET"
+			},
+			{
+				"id": "8c789321-f1e7-40ad-ae2e-7d4cb7716384",
+				"method": "PUT"
+			},
+			{
+				"id": "f5d14440-89e4-4e5a-86fc-0eef651c592b",
+				"method": "GET"
+			},
+			{
+				"id": "b8a8da96-48ec-426e-9248-1a82a3d2e621",
+				"method": "POST"
+			},
+			{
+				"id": "5a281ec7-a3fe-4828-aa2a-aeb007c84d01",
+				"method": "GET"
+			},
+			{
+				"id": "7a0cc528-943f-494b-a0f1-7f5f1a64b16d",
+				"method": "GET"
+			},
+			{
+				"id": "195ad4a4-4ed4-4af1-a0b0-8e69ec654096",
+				"method": "PUT"
+			}
+		]
+	}
+}
