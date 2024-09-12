@@ -2,7 +2,7 @@
 
 ## ДЗ-6. API Gateway
 
-1. Должен быть установлен [https://helm.sh/docs/intro/install/](helm)
+1. Должен быть установлен [helm](https://helm.sh/docs/intro/install/)
 2. Склонировать репозиторий в текущую директорию
 
  ```shell
