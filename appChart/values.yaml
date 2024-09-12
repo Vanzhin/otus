@@ -171,18 +171,13 @@ postgresql:
       auth:
         username: postgres
         password: password
-        database: database_app
+        database: database_app_shared
       service:
         port: "5432"
-  profile:
-    enabled: true
-    fullnameOverride: "app-postgresql-profile"
-    global:
-      postgresql:
-        auth:
-          username: postgres
-          password: password
-          database: database_app
-        service:
-          port: "54321"
+  primary:
+    persistence:
+      enabled: false
+    initdb:
+      user: postgres
+      password: password
 
