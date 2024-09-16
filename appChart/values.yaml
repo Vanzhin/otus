@@ -164,20 +164,22 @@ tolerations: [ ]
 affinity: { }
 
 postgresql:
-  enabled: true
-  fullnameOverride: "app-postgresql"
-  global:
-    postgresql:
-      auth:
-        username: postgres
+    enabled: true
+    fullnameOverride: "myapp-db"
+    auth:
+          username: user
+          password: password
+          database: app_db
+    primary:
+      persistence:
+        enabled: false
+      initdb:
+        user: user
         password: password
-        database: database_app_shared
-      service:
-        port: "5432"
-  primary:
-    persistence:
-      enabled: false
-    initdb:
-      user: postgres
-      password: password
+        scripts:
+          init.sql: |
+            CREATE DATABASE app_db_profile;
+            GRANT ALL PRIVILEGES ON DATABASE app_db_profile TO user;
+    service:
+      port: 5432
 

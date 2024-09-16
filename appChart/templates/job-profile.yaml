@@ -27,27 +27,27 @@ spec:
             - name: DB_USER
               valueFrom:
                 secretKeyRef:
-                  key: POSTGRES_USER
+                  key: USER
                   name: postgresql
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  key: POSTGRES_PASSWORD
+                  key: PASSWORD
                   name: postgresql
             - name: DB_NAME
               valueFrom:
                 configMapKeyRef:
-                  name: postgresql-config
+                  name: postgresql-profile-config
                   key: POSTGRES_DB
             - name: DB_HOST
               valueFrom:
                 configMapKeyRef:
-                  name: postgresql-config
+                  name: postgresql-profile-config
                   key: DB_HOST
             - name: DB_PORT
               valueFrom:
                 configMapKeyRef:
-                  name: postgresql-config
+                  name: postgresql-profile-config
                   key: DB_PORT
       restartPolicy: Never
   backoffLimit: 4

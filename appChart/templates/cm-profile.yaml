@@ -5,6 +5,6 @@ metadata:
   labels:
     app: postgresql
 data:
-  POSTGRES_DB: database_app
+  POSTGRES_DB: app_db_profile
   DB_HOST: {{ .Values.postgresql.fullnameOverride }}
   DB_PORT: "5432"
