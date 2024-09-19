@@ -1,9 +1,9 @@
-{{- if .Values.profile.ingress.enabled -}}
-{{- $fullName := include "app_chart.fullname" . -}}
-{{- $svcPort := .Values.profile.service.port -}}
-{{- if and .Values.profile.ingress.className (not (semverCompare ">=1.18-0" .Capabilities.KubeVersion.GitVersion)) }}
-  {{- if not (hasKey .Values.profile.ingress.annotations "kubernetes.io/ingress.class") }}
-  {{- $_ := set .Values.profile.ingress.annotations "kubernetes.io/ingress.class" .Values.ingress.className}}
+{{- if .Values.ingress.enabled -}}
+{{- $fullName := include "profile.fullname" . -}}
+{{- $svcPort := .Values.service.port -}}
+{{- if and .Values.ingress.className (not (semverCompare ">=1.18-0" .Capabilities.KubeVersion.GitVersion)) }}
+  {{- if not (hasKey .Values.ingress.annotations "kubernetes.io/ingress.class") }}
+  {{- $_ := set .Values.ingress.annotations "kubernetes.io/ingress.class" .Values.ingress.className}}
   {{- end }}
 {{- end }}
 {{- if semverCompare ">=1.19-0" .Capabilities.KubeVersion.GitVersion -}}
@@ -15,18 +15,18 @@ apiVersion: extensions/v1beta1
 {{- end }}
 kind: Ingress
 metadata:
-  name: {{ $fullName }}-profile
-  {{- with .Values.profile.ingress.annotations }}
+  name: {{ $fullName }}
+  {{- with .Values.ingress.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
-  {{- if and .Values.profile.ingress.className (semverCompare ">=1.18-0" .Capabilities.KubeVersion.GitVersion) }}
-  ingressClassName: {{ .Values.profile.ingress.className }}
+  {{- if and .Values.ingress.className (semverCompare ">=1.18-0" .Capabilities.KubeVersion.GitVersion) }}
+  ingressClassName: {{ .Values.ingress.className }}
   {{- end }}
-  {{- if .Values.profile.ingress.tls }}
+  {{- if .Values.ingress.tls }}
   tls:
-    {{- range .Values.profile.ingress.tls }}
+    {{- range .Values.ingress.tls }}
     - hosts:
         {{- range .hosts }}
         - {{ . | quote }}
@@ -35,7 +35,7 @@ spec:
     {{- end }}
   {{- end }}
   rules:
-    {{- range .Values.profile.ingress.hosts }}
+    {{- range .Values.ingress.hosts }}
     - host: {{ .host | quote }}
       http:
         paths:
@@ -47,11 +47,11 @@ spec:
             backend:
               {{- if semverCompare ">=1.19-0" $.Capabilities.KubeVersion.GitVersion }}
               service:
-                name: {{ $fullName }}-profile
+                name: {{ $fullName }}
                 port:
                   number: {{ $svcPort }}
               {{- else }}
-              serviceName: {{ $fullName }}-profile
+              serviceName: {{ $fullName }}
               servicePort: {{ $svcPort }}
               {{- end }}
           {{- end }}

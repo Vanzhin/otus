@@ -1,50 +1,39 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: batch/v1
+kind: Job
 metadata:
-  name: myapp-profile
+  name: {{ include "profile.fullname" . }}
+  labels:
+    {{- include "profile.labels" . | nindent 4 }}
 spec:
-  {{- if not .Values.autoscaling.enabled }}
-  replicas: {{ .Values.replicaCount }}
-  {{- end }}
-  selector:
-    matchLabels:
-      app: myapp-profile
   template:
-    metadata:
-      {{- with .Values.podAnnotations }}
-      annotations:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      labels:
-        app: myapp-profile
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      serviceAccountName: {{ include "profile.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
-        - name: myapp-profile
+        - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.profile.image.repository }}:{{ .Values.profile.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.profile.image.pullPolicy }}
-          ports:
-            - name: http
-              containerPort: {{ .Values.profile.service.port }}
-              protocol: TCP
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          command: [ "bash" ]
+          args:
+            - -c
+            - cd app/ && php bin/console doctrine:migrations:migrate --no-interaction
           env:
             - name: DB_USER
               valueFrom:
                 secretKeyRef:
                   key: USER
-                  name: postgresql
+                  name: postgresql-profile
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
                   key: PASSWORD
-                  name: postgresql
+                  name: postgresql-profile
             - name: DB_NAME
               valueFrom:
                 configMapKeyRef:
@@ -60,3 +49,5 @@ spec:
                 configMapKeyRef:
                   name: postgresql-profile-config
                   key: DB_PORT
+      restartPolicy: Never
+  backoffLimit: 4

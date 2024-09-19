@@ -17,15 +17,20 @@
    ```shell
    minikube addons enable ingress
    ```
-6. Выполнить команду
+6. Выполнить команды
    ```shell
-     helm install myapp appChart
+    helm install myapp appChart
+    helm install myapp-profile appChartProfile
    ```
-8. Для работы на локальной машине, необходимо, чтобы в /etc/hosts был прописан "127.0.0.1 arch.homework", также
+7.Для работы на локальной машине, необходимо, чтобы в /etc/hosts был прописан "127.0.0.1 arch.homework", также
    выполнить команду
    ```shell
    minikube tunnel
    ```
-9. После запуска приложения должны отрабатывать [роуты](postman/HW6.postman_collection.json)
-10. Инструкции есть в директории [docs](docs)
+8. После запуска приложения должны отрабатывать [роуты](postman/HW6.postman_collection.json)
+9. Инструкции есть в директории [docs](docs)
+10. Удаление приложения
+   ```shell
+    helm delete myapp myapp-profile
+   ```
    

@@ -2,7 +2,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-replicaCount: 2
+replicaCount: 1
 
 auth:
   service:
@@ -37,32 +37,6 @@ auth:
             - path: /otusapp/\w+(/|$)(.*)
               pathType: ImplementationSpecific
       tls: [ ]
-profile:
-  service:
-    protocol: TCP
-    name: http
-    type: ClusterIP
-    port: 80
-    targetPort: 8000
-  image:
-    repository: vanzhin/profile
-    pullPolicy: IfNotPresent
-      # Overrides the image tag whose default is the chart appVersion.
-    tag: v1.0.1
-  ingress:
-    enabled: true
-    name: kuber-ingress
-    className: nginx
-    annotations:
-      nginx.ingress.kubernetes.io/auth-url: "http://arch.homework/api/auth/token/validate"
-      nginx.ingress.kubernetes.io/auth-response-headers: "x-user"
-    hosts:
-      - host: "arch.homework"
-        http:
-        paths:
-          - path: /profile
-            pathType: Prefix
-    tls: [ ]
 
 imagePullSecrets: [ ]
 nameOverride: ""
@@ -176,10 +150,6 @@ postgresql:
       initdb:
         user: user
         password: password
-        scripts:
-          init.sql: |
-            CREATE DATABASE app_db_profile;
-            GRANT ALL PRIVILEGES ON DATABASE app_db_profile TO user;
     service:
       port: 5432
 

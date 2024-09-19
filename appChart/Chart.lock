@@ -2,5 +2,8 @@ dependencies:
 - name: postgresql
   repository: https://charts.bitnami.com/bitnami
   version: 15.5.28
-digest: sha256:a08dd2f841e7713846c4faf0f2eb407585b308f32d6d854f76d042ccf2cfba72
-generated: "2024-09-10T11:15:45.73156+05:00"
+- name: profile
+  repository: file://./charts/profile
+  version: 0.1.0
+digest: sha256:7d2f8e51427f2bd1541a5a7c25fd34758d4e2ca462583a459f78e3227a825ea9
+generated: "2024-09-17T12:12:25.811138+05:00"
