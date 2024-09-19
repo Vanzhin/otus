@@ -15,7 +15,7 @@ auth:
     repository: vanzhin/my-app
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: v1.5.4
+    tag: v1.6.1
   ingress:
       enabled: true
       name: kuber-ingress
@@ -152,4 +152,9 @@ postgresql:
         password: password
     service:
       port: 5432
+
+serviceNames:
+  profile: 'http://myapp-profile'
+  billing: 'http://myapp-billing'
+
 
