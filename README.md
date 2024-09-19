@@ -8,6 +8,7 @@
  ```shell
  git clone https://github.com/Vanzhin/otus.git
  ```
+
 3. Установить [minikube](https://kubernetes.io/ru/docs/tasks/tools/install-minikube/).
 4. Запустить minikube
     ```shell
@@ -22,10 +23,10 @@
     helm install myapp appChart
     helm install myapp-profile appChartProfile
    ```
-7.Для работы на локальной машине, необходимо, чтобы в /etc/hosts был прописан "127.0.0.1 arch.homework", также
+7. Для работы на локальной машине, необходимо, чтобы в /etc/hosts был прописан "127.0.0.1 arch.homework", также
    выполнить команду
    ```shell
-   minikube tunnel
+    minikube tunnel
    ```
 8. После запуска приложения должны отрабатывать [роуты](postman/HW6.postman_collection.json)
 9. Инструкции есть в директории [docs](docs)
