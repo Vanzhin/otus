@@ -10,7 +10,7 @@ image:
   repository: vanzhin/order
   pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-  tag: v1.2.2
+  tag: v1.4
 ingress:
   enabled: true
   name: kuber-order-ingress
@@ -125,7 +125,8 @@ postgresql:
     service:
       ports:
         postgresql: 5432
-
+rabbitmq:
+    dsn: "amqp://user:password@myapp-rabbitmq:5672"
 serviceNames:
   profile: 'http://myapp-profile'
   billing: 'http://myapp-billing'

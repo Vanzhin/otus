@@ -2,8 +2,8 @@ dependencies:
 - name: postgresql
   repository: https://charts.bitnami.com/bitnami
   version: 15.5.28
-- name: profile
-  repository: file://./charts/profile
-  version: 0.1.0
-digest: sha256:7d2f8e51427f2bd1541a5a7c25fd34758d4e2ca462583a459f78e3227a825ea9
-generated: "2024-09-17T12:12:25.811138+05:00"
+- name: rabbitmq
+  repository: https://charts.bitnami.com/bitnami
+  version: 15.0.0
+digest: sha256:48dbbd6cc878d8c6546be502a318ad6ce9012167f2c949ab00e608b15e2d262d
+generated: "2024-09-25T07:34:43.437642+05:00"

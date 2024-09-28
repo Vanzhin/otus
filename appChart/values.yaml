@@ -153,6 +153,13 @@ postgresql:
     service:
       port: 5432
 
+rabbitmq:
+    enabled: true
+#    auth:
+#      password: user
+#      username: password-password
+
+
 serviceNames:
   profile: 'http://myapp-profile'
   billing: 'http://myapp-billing'

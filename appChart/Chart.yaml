@@ -28,3 +28,7 @@ dependencies: # A list of the chart requirements (optional)
     version: "15.5.28"
     repository: https://charts.bitnami.com/bitnami
     condition: postgresql.enabled
+  - name: rabbitmq
+    version: "15.x.x"
+    repository: https://charts.bitnami.com/bitnami
+    condition: rabbitmq.enabled
