@@ -1,6 +1,6 @@
 # OTUS-MSA
 
-## ДЗ-6. API Gateway
+## ДЗ-7. RESTful
 
 1. Должен быть установлен [helm](https://helm.sh/docs/intro/install/)
 2. Склонировать репозиторий в текущую директорию
@@ -22,6 +22,9 @@
    ```shell
     helm install myapp appChart
     helm install myapp-profile appChartProfile
+    helm install myapp-billing appChartBilling
+    helm install myapp-order appChartOrder
+    helm install myapp-notification appCharNotification
    ```
 7. Для работы на локальной машине, необходимо, чтобы в /etc/hosts был прописан "127.0.0.1 arch.homework", также
    выполнить команду
@@ -32,6 +35,6 @@
 9. Инструкции есть в директории [docs](docs)
 10. Удаление приложения
    ```shell
-    helm delete myapp myapp-profile
+    helm delete myapp myapp-profile myapp-billing myapp-order myapp-notification
    ```
    

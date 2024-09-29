@@ -32,9 +32,6 @@ spec:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: notification
-#          volumeMounts:
-#            - mountPath: /var/www/app/src
-#              name: notification-mount
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
@@ -73,8 +70,5 @@ spec:
               value: {{ .Values.serviceNames.profile }}
             - name: BASE_URI_BILLING
               value: {{ .Values.serviceNames.billing }}
-#      volumes:
-#        - name: order-mount
-#          hostPath:
-#            path: /data/src
-#            type: Directory
+            - name: EXTERNAL_MESSAGE_TRANSPORT_DSN
+              value: {{ .Values.rabbitmq.dsn }}

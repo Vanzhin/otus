@@ -10,7 +10,7 @@ image:
   repository: vanzhin/notification
   pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-  tag: v1.1
+  tag: v1.3.5
 ingress:
   enabled: true
   name: kuber-notification-ingress
@@ -125,6 +125,8 @@ postgresql:
     service:
       ports:
         postgresql: 5432
+rabbitmq:
+  dsn: "amqp://user:password@myapp-rabbitmq:5672"
 
 serviceNames:
   profile: 'http://myapp-profile'

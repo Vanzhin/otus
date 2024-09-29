@@ -1,0 +1,566 @@
+{
+	"id": "01a65bf2-9573-4a89-84ca-1d09f029fc66",
+	"name": "HW7",
+	"timestamp": "2024-09-29T09:06:26.081Z",
+	"collection_id": "24005342-b595929d-dd1a-497f-b13a-34644436e649",
+	"folder_id": 0,
+	"environment_id": "24005342-2331d549-ae70-4a49-b9c3-115280195fc1",
+	"totalPass": 49,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-09-29T09:06:20.767Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "6713cb81-da28-4ea0-bf45-9ab34f74a2dd",
+			"name": "Регистрация пользователя",
+			"url": "http://arch.homework/api/users",
+			"time": 1092,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response has the required field - status": true,
+				"Content type is application/json": true,
+				"Status field is not empty": true,
+				"Response time is less than 1500ms": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has the required field - status": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content type is application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status field is not empty": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1500ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1092
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response has the required field - status": true,
+					"Content type is application/json": true,
+					"Status field is not empty": true,
+					"Response time is less than 1500ms": true
+				}
+			]
+		},
+		{
+			"id": "57417c26-4d54-408f-967e-1e92222838c0",
+			"name": "Логин  пользователя",
+			"url": "http://arch.homework/api/auth/token/login",
+			"time": 1002,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response time is within an acceptable range": true,
+				"Content-Type header is application/json": true,
+				"Validate the structure of the response JSON": true,
+				"Check if the 'result,' 'status,' 'data,' and 'message' fields are present in the response": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is within an acceptable range": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate the structure of the response JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check if the 'result,' 'status,' 'data,' and 'message' fields are present in the response": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1002
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response time is within an acceptable range": true,
+					"Content-Type header is application/json": true,
+					"Validate the structure of the response JSON": true,
+					"Check if the 'result,' 'status,' 'data,' and 'message' fields are present in the response": true
+				}
+			]
+		},
+		{
+			"id": "966468ba-b07f-40b3-9454-1bd649c2fee8",
+			"name": "Внести деньги на счет",
+			"url": "http://arch.homework/billing/account/transaction",
+			"time": 353,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response time is less than 1000ms": true,
+				"Verify the response schema for the presence of required fields": true,
+				"Result and message fields should be of type string": true,
+				"Status field is a non-negative integer": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify the response schema for the presence of required fields": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Result and message fields should be of type string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status field is a non-negative integer": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				353
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response time is less than 1000ms": true,
+					"Verify the response schema for the presence of required fields": true,
+					"Result and message fields should be of type string": true,
+					"Status field is a non-negative integer": true
+				}
+			]
+		},
+		{
+			"id": "96861098-cd7d-4612-8da6-2174f67de2c2",
+			"name": "Посмотреть счет",
+			"url": "http://arch.homework/billing/account",
+			"time": 337,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response time is in an acceptable range": true,
+				"Validate the response schema for the presence of required fields": true,
+				"Account object within data should contain required fields": true,
+				"Balance is a non-negative integer": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is in an acceptable range": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate the response schema for the presence of required fields": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Account object within data should contain required fields": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Balance is a non-negative integer": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				337
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response time is in an acceptable range": true,
+					"Validate the response schema for the presence of required fields": true,
+					"Account object within data should contain required fields": true,
+					"Balance is a non-negative integer": true
+				}
+			]
+		},
+		{
+			"id": "e2396341-484f-498e-93ba-02508d521dbf",
+			"name": "Сделать заказ, на который хватает",
+			"url": "http://arch.homework/orders",
+			"time": 602,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response time is less than 1500ms": true,
+				"Response has the required fields": true,
+				"Result is a non-empty string": true,
+				"Status is a non-negative integer": true,
+				"ID is a non-empty string": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has the required fields": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Result is a non-empty string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status is a non-negative integer": {
+					"pass": 1,
+					"fail": 0
+				},
+				"ID is a non-empty string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				602
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response time is less than 1500ms": true,
+					"Response has the required fields": true,
+					"Result is a non-empty string": true,
+					"Status is a non-negative integer": true,
+					"ID is a non-empty string": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "691c5378-835e-4276-b44c-2194ccf69494",
+			"name": "Посмотреть счет",
+			"url": "http://arch.homework/billing/account",
+			"time": 379,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response time is in an acceptable range": true,
+				"Validate the response schema for the presence of required fields": true,
+				"Account object within data should contain required fields": true,
+				"Balance is a non-negative integer": true,
+				"Balance updated": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is in an acceptable range": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate the response schema for the presence of required fields": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Account object within data should contain required fields": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Balance is a non-negative integer": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Balance updated": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				379
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response time is in an acceptable range": true,
+					"Validate the response schema for the presence of required fields": true,
+					"Account object within data should contain required fields": true,
+					"Balance is a non-negative integer": true,
+					"Balance updated": true
+				}
+			]
+		},
+		{
+			"id": "aff801f6-b993-4b63-a379-40dfeb356470",
+			"name": "Посмотреть список сообщений",
+			"url": "http://arch.homework/notification/list",
+			"time": 213,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Content-Type is application/json": true,
+				"Response time is less than 1000ms": true,
+				"Verify that the response contains the required fields": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify that the response contains the required fields": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				213
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Content-Type is application/json": true,
+					"Response time is less than 1000ms": true,
+					"Verify that the response contains the required fields": true
+				}
+			]
+		},
+		{
+			"id": "7b0d1b9a-7bb8-4039-8167-e48da4724e07",
+			"name": "Сделать заказ, на который не хватает",
+			"url": "http://arch.homework/orders",
+			"time": 472,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response time is less than 1500ms": true,
+				"Presence of required fields": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Presence of required fields": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				472
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response time is less than 1500ms": true,
+					"Presence of required fields": true
+				}
+			]
+		},
+		{
+			"id": "d35da8f6-f385-451d-af4e-c98aad458e7f",
+			"name": "Посмотреть счет",
+			"url": "http://arch.homework/billing/account",
+			"time": 351,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response time is in an acceptable range": true,
+				"Validate the response schema for the presence of required fields": true,
+				"Account object within data should contain required fields": true,
+				"Balance is a non-negative integer": true,
+				"Balance not updated": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is in an acceptable range": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate the response schema for the presence of required fields": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Account object within data should contain required fields": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Balance is a non-negative integer": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Balance not updated": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				351
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response time is in an acceptable range": true,
+					"Validate the response schema for the presence of required fields": true,
+					"Account object within data should contain required fields": true,
+					"Balance is a non-negative integer": true,
+					"Balance not updated": true
+				}
+			]
+		},
+		{
+			"id": "5126a599-99d2-4a72-879f-f299b22b9371",
+			"name": "Посмотреть список сообщений Copy",
+			"url": "http://arch.homework/notification/list",
+			"time": 192,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Verify that the response contains the required fields": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify that the response contains the required fields": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				192
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Verify that the response contains the required fields": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 4993,
+	"collection": {
+		"requests": [
+			{
+				"id": "6713cb81-da28-4ea0-bf45-9ab34f74a2dd",
+				"method": "POST"
+			},
+			{
+				"id": "57417c26-4d54-408f-967e-1e92222838c0",
+				"method": "GET"
+			},
+			{
+				"id": "966468ba-b07f-40b3-9454-1bd649c2fee8",
+				"method": "POST"
+			},
+			{
+				"id": "96861098-cd7d-4612-8da6-2174f67de2c2",
+				"method": "GET"
+			},
+			{
+				"id": "e2396341-484f-498e-93ba-02508d521dbf",
+				"method": "POST"
+			},
+			{
+				"id": "691c5378-835e-4276-b44c-2194ccf69494",
+				"method": "GET"
+			},
+			{
+				"id": "aff801f6-b993-4b63-a379-40dfeb356470",
+				"method": "POST"
+			},
+			{
+				"id": "7b0d1b9a-7bb8-4039-8167-e48da4724e07",
+				"method": "POST"
+			},
+			{
+				"id": "d35da8f6-f385-451d-af4e-c98aad458e7f",
+				"method": "GET"
+			},
+			{
+				"id": "5126a599-99d2-4a72-879f-f299b22b9371",
+				"method": "POST"
+			}
+		]
+	}
+}
